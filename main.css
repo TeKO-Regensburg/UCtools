@@ -32,10 +32,12 @@ select:focus{
 .result,
 .allResult{
     margin-top: 15px;
-    border-radius: 1.25em;
+    border-radius: 1.00em;
+    padding: 1.25em;
     background-color: #F0F0F0;
-    width: 100%;
-    height: 400px;
+    color: #1E1E1E;
+    width: 95%;
+    height: 380px;
     overflow-y: scroll;
 }
 
