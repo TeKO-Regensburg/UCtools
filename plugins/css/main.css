@@ -36,8 +36,8 @@ select:focus{
     padding: 1.25em;
     background-color: #F0F0F0;
     color: #1E1E1E;
-    width: 95%;
-    height: 380px;
+    width: 50%;
+    height: 200px;
     overflow-y: scroll;
 }
 
