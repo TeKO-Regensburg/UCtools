@@ -11,62 +11,44 @@
                 
         <label>Firma:</label>
 <!-- Das Select muss mit den verschiedenen Firmen gefüllt werden -->
-        <select>
-            <option>Bitte ausw&auml;hlen...</option>
-            <option>Xing</option>
-            <option>N&uuml;rnberg Nachrichten</option>
+        <select autofocus onchange="auswahlEinstellen(this.value);">
+            <option value="std">Bitte ausw&auml;hlen...</option>
+            <option value="xing">Xing</option>
+            <option value="nn">N&uuml;rnberg Nachrichten</option>
         </select>
 
 <!-- In dem result-DIV wird das Ergebnis der Suche angezeigt -->
-        <div class="result" id="firmaListe">
-            <ul id="liste">
-                <li>test@test.de</li>
-                <li>test1@test.de</li>
-                <li>test2@test.de</li>
-            </ul>
-        </div>
+        <div class="result" id="firmaListe"></div>
 
-        <button id="addBtn" class="btn">hinzufügen zur Gesamtliste</button>
+        <button type="button" id="exportierenBtn" class="btn">exportieren</button>
 
-<!-- In dem allResult-DIV werden alle hinzugefügten eMail-Adressen angezeigt -->
-        <div class="allResult" id="gesamtListe">
-            
-        </div>
-
-        <button class="btn">Exportieren der Gesamtliste</button>
         
         <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
         <script>
-            $(document).ready(function(){
-// Speichern alle <li> Elemente der firmaListe in das array texte
-                var div = document.getElementById('firmaListe');
-                var uls = div.getElementsByTagName('ul');
-                for(var j = 0; j < uls.length; j++){
-                    var ul = uls[j];
-                    //var ul = uls[(uls.length - 1)];
-                    var li = ul.getElementsByTagName('li');
-                    texte = new Array ();
-                    for (var i = 0; i < li.length; i++)
-                    {
-                        texte.push (li[i].firstChild.data);
-                    } 
-                }    
+            function auswahlEinstellen(auswahl){
+                xingList = ['test@xing.de','test1@xing.de','test2@xing.de'];
+                nnList = ['test@nn.de','test1@nn.de','test2@nn.de']; 
 
-            });
+                switch(auswahl){
+                    case 'xing': listeAnzeigen(xingList); break;
+                    case 'nn': listeAnzeigen(nnList); break;
+                    default: $('.result').html('');break;
+                }
+            }
 
 // Erstellung der Liste (<ul>) und der Listeelemente (<li>). Zusätzlich wird jeden indexeintrag aus dem array texte einem <li> hinzugefügt.
 // Anschließend wird alles in gesamtListe ausgegeben
-            $('#addBtn').click(function(){
+            function listeAnzeigen(list){
                 var listAusgabe = document.createElement('ul');
 
-                for(var i = 0; i < texte.length; i++){
+                for(var i = 0; i < list.length; i++){
                     var item = document.createElement('li');
-                    item.appendChild(document.createTextNode(texte[i]));
+                    item.appendChild(document.createTextNode(list[i]));
                     listAusgabe.appendChild(item);
                 }              
 
-                $('#gesamtListe').html(listAusgabe);
-            });
+                $('.result').html(listAusgabe);
+            };
         </script>
     </body>
 </hmtl>
