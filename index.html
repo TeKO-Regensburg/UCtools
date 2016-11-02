@@ -9,16 +9,17 @@
     <body>
         <p><font size='5'>UC<i><b>tools<font color='#45D32A'>!</font></b></i></font><span class="headlineSpan">Hier werden die SWS-Email-Adressen in den Kontakten der Kunden gesucht</span></p>
                 
-        <label>Firma:</label>
+        <label>Mitarbeiter:</label>
 <!-- Das Select muss mit den verschiedenen Firmen gefüllt werden -->
         <select autofocus onchange="auswahlEinstellen(this.value);">
             <option value="std">Bitte ausw&auml;hlen...</option>
-            <option value="xing">Xing</option>
-            <option value="nn">N&uuml;rnberg Nachrichten</option>
+            <option value="kupke">Kupke</option>
+            <option value="dornheim">Dornheim</option>
         </select>
 
 <!-- In dem result-DIV wird das Ergebnis der Suche angezeigt -->
-        <div class="result" id="firmaListe"></div>
+        <div class="result"></div>
+        <div class="resultSWS"></div>
 
         <button type="button" id="exportierenBtn" class="btn">exportieren</button>
 
@@ -26,28 +27,61 @@
         <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
         <script>
             function auswahlEinstellen(auswahl){
-                xingList = ['test@xing.de','test1@xing.de','test2@xing.de'];
-                nnList = ['test@nn.de','test1@nn.de','test2@nn.de']; 
+                kupkeList = ['info@xing.de','test@nn.de','tor@swsnet.de','doe@waterfalls.de','held@wiewir.com','das@gibts.net','fcn@fcn.de','hammer@airport-nuernberg.de','kupfer@stadt.nuernberg.de','schneider@kdg.de','tec@tec.info','dornheim@swsnet.de'];
+                dornheimList = ['kupke@swsnet.de','john@waterfalls.de','info@facebook.com','wander@vogel.de','vogel@swsnet.de']; 
+                var tempArray = [];
+                var tempArray2 = [];
 
                 switch(auswahl){
-                    case 'xing': listeAnzeigen(xingList); break;
-                    case 'nn': listeAnzeigen(nnList); break;
-                    default: $('.result').html('');break;
+                    case 'kupke': 
+                        for(var l in kupkeList){
+                            if(kupkeList[l].match(/@swsnet.de/gi)){
+                                tempArray2.push(kupkeList[l]);
+                            }
+                            else{
+                                tempArray.push(kupkeList[l]);
+                            }
+                        }
+                        listeAnzeigen(tempArray, tempArray2); 
+                    break;
+
+                    case 'dornheim': 
+                        for(var l in dornheimList){
+                            if(dornheimList[l].match(/@swsnet.de/gi)){
+                                tempArray2.push(dornheimList[l]);
+                            }
+                            else{
+                                tempArray.push(dornheimList[l]);
+                            }
+                        }
+                        listeAnzeigen(tempArray, tempArray2); 
+                    break;
+
+                    default: 
+                        $('.result').html('');
+                        $('.resultSWS').html('');
+                    break;
                 }
             }
 
 // Erstellung der Liste (<ul>) und der Listeelemente (<li>). Zusätzlich wird jeden indexeintrag aus dem array texte einem <li> hinzugefügt.
 // Anschließend wird alles in gesamtListe ausgegeben
-            function listeAnzeigen(list){
-                var listAusgabe = document.createElement('ul');
+            function listeAnzeigen(list, list2){
+                listAusgabe = document.createElement('ul');
+                listAusgabe2 = document.createElement('ul');
 
                 for(var i = 0; i < list.length; i++){
                     var item = document.createElement('li');
                     item.appendChild(document.createTextNode(list[i]));
                     listAusgabe.appendChild(item);
-                }              
-
+                }     
+                for(var i = 0; i < list2.length; i++){
+                    var item = document.createElement('li');
+                    item.appendChild(document.createTextNode(list2[i]));
+                    listAusgabe2.appendChild(item);
+                }             
                 $('.result').html(listAusgabe);
+                $('.resultSWS').html(listAusgabe2);
             };
         </script>
     </body>
