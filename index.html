@@ -11,10 +11,10 @@
                 
         <label>Mitarbeiter:</label>
 <!-- Das Select muss mit den verschiedenen Mitarbeitern gefüllt werden -->
-        <select autofocus onchange="objErstellen(this.value);">
+        <select id="ausSelect" autofocus onchange="objErstellen(this.value);">
             <option value="std">Bitte ausw&auml;hlen...</option>
-            <option value="kupke">Kupke</option>
-            <option value="dornheim">Dornheim</option>
+            <!--<option value="kupke">Kupke</option>
+            <option value="dornheim">Dornheim</option>-->
         </select>
 
 <!-- In dem result-DIV wird das Ergebnis der Suche und in dem resultSWS-DIV werden die internen angezeigt-->
@@ -28,16 +28,34 @@
 <!-- Beginn JavaScript-Bereich -->        
         <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
         <script>
+// Namen initialisieren durch ein JSON
+            var xmlhttp = new XMLHttpRequest();
+            var url = "mitarbeiter.json";
+            var myArr;
+
+            xmlhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                    myArr = JSON.parse(this.responseText);
+                    for(var i = 0; i < myArr.Mitarbeiter.length; i++){
+                        $('#ausSelect').append('<option value='+myArr.Mitarbeiter[i].lastName+'>'+myArr.Mitarbeiter[i].firstName+' '+myArr.Mitarbeiter[i].lastName+'</option>');
+                        alert(myArr.Mitarbeiter[i].lastName);
+                    }
+                        
+                }
+            }
+
+            xmlhttp.open('GET', url, true);
+            xmlhttp.send();
 // Initialisieren der Kontaktliste als Array
             var contactList = [];
 
 // Funktion zum erstellen des Mitarbeiter Objektes
             function objErstellen(name){
                 switch(name){
-                    case 'kupke':
+                    case 'Kupke':
                         contactList = ['info@xing.de','test@nn.de','tor@swsnet.de','doe@waterfalls.de','held@wiewir.com','das@gibts.net','fcn@fcn.de','hammer@airport-nuernberg.de','kupfer@stadt.nuernberg.de','schneider@kdg.de','tec@tec.info','dornheim@swsnet.de'];
                     break;
-                    case 'dornheim':
+                    case 'Dornheim':
                         contactList = ['kupke@swsnet.de','john@waterfalls.de','info@facebook.com','wander@vogel.de','vogel@swsnet.de']; 
                     break;
                     default: contactList = [];

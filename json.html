@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<hmtl lang="de">
+    <head>
+        <title>Domainchange</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link href="./plugins/css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="id01"></div>
+
+<!-- Beginn JavaScript-Bereich -->        
+        <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+            var url = "mitarbeiter.json";
+
+            xmlhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                    var myArr = JSON.parse(this.responseText);
+                    alert(myArr.Mitarbeiter[0].firstName+" "+myArr.Mitarbeiter[0].lastName);
+                }
+            }
+
+            xmlhttp.open('GET', url, true);
+            xmlhttp.send();
+        </script>
+    </body>
+</hmtl>

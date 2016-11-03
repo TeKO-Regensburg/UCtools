@@ -23,9 +23,10 @@
         "held@wiewir.com"
       ]
     },
+
     {
       "firstName": "Stefan",  
-      "name": "Dornheim",
+      "lastName": "Dornheim",
       "contacts": [
         "kupke@swsnet.de",
         "john@waterfalls.de",
