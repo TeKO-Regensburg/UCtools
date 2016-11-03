@@ -11,7 +11,7 @@
                 
         <label>Mitarbeiter:</label>
 <!-- Das Select muss mit den verschiedenen Mitarbeitern gefüllt werden -->
-        <select autofocus onchange="auswahlEinstellen(this.value);">
+        <select autofocus onchange="objErstellen(this.value);">
             <option value="std">Bitte ausw&auml;hlen...</option>
             <option value="kupke">Kupke</option>
             <option value="dornheim">Dornheim</option>
@@ -26,42 +26,34 @@
         
         <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
         <script>
-            function auswahlEinstellen(auswahl){
-                kupkeList = ['info@xing.de','test@nn.de','tor@swsnet.de','doe@waterfalls.de','held@wiewir.com','das@gibts.net','fcn@fcn.de','hammer@airport-nuernberg.de','kupfer@stadt.nuernberg.de','schneider@kdg.de','tec@tec.info','dornheim@swsnet.de'];
-                dornheimList = ['kupke@swsnet.de','john@waterfalls.de','info@facebook.com','wander@vogel.de','vogel@swsnet.de']; 
+            var contactList = [];
+            function objErstellen(name){
+                switch(name){
+                    case 'kupke':
+                        contactList = ['info@xing.de','test@nn.de','tor@swsnet.de','doe@waterfalls.de','held@wiewir.com','das@gibts.net','fcn@fcn.de','hammer@airport-nuernberg.de','kupfer@stadt.nuernberg.de','schneider@kdg.de','tec@tec.info','dornheim@swsnet.de'];
+                    break;
+                    case 'dornheim':
+                        contactList = ['kupke@swsnet.de','john@waterfalls.de','info@facebook.com','wander@vogel.de','vogel@swsnet.de']; 
+                    break;
+                    default: contactList = [];
+                }
+                var obj = {lastName: name, contacts: contactList};
+                auswahlEinstellen(obj);
+            }
+
+            function auswahlEinstellen(obj){
                 var tempArray = [];
                 var tempArray2 = [];
 
-                switch(auswahl){
-                    case 'kupke': 
-                        for(var l in kupkeList){
-                            if(kupkeList[l].match(/@swsnet.de/gi)){
-                                tempArray2.push(kupkeList[l]);
+                        for(var l in obj.contacts){
+                            if(obj.contacts[l].match(/@swsnet.de/gi)){
+                                tempArray2.push(obj.contacts[l]);
                             }
                             else{
-                                tempArray.push(kupkeList[l]);
+                                tempArray.push(obj.contacts[l]);
                             }
                         }
-                        listeAnzeigen(tempArray, tempArray2); 
-                    break;
-
-                    case 'dornheim': 
-                        for(var l in dornheimList){
-                            if(dornheimList[l].match(/@swsnet.de/gi)){
-                                tempArray2.push(dornheimList[l]);
-                            }
-                            else{
-                                tempArray.push(dornheimList[l]);
-                            }
-                        }
-                        listeAnzeigen(tempArray, tempArray2); 
-                    break;
-
-                    default: 
-                        $('.result').html('');
-                        $('.resultSWS').html('');
-                    break;
-                }
+                        listeAnzeigen(tempArray, tempArray2);                      
             }
 
 // Erstellung der Liste (<ul>) und der Listeelemente (<li>). Zusätzlich wird jeden indexeintrag aus dem array texte einem <li> hinzugefügt.
