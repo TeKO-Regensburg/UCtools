@@ -44,7 +44,7 @@
                 }
                 var obj = {lastName: name, contacts: contactList};
                 auswahlEinstellen(obj);
-            }
+            };
 
 // Hier werden alle Adressen mit der Endung @swsnet.de herausgefiltert und in ein seperates Array gespeichert
             function auswahlEinstellen(obj){
@@ -60,7 +60,7 @@
                     }
                 }
                 listeAnzeigen(extContactsArray, intContactsArray);                      
-            }
+            };
 
 // Erstellung der Liste (<ul>) und der Listeelemente (<li>). Zusätzlich wird jeden indexeintrag aus dem array texte einem <li> hinzugefügt.
             function listeAnzeigen(extContactsArray, intContactsArray){
@@ -79,6 +79,10 @@
                 }             
                 $('.result').html(extListAusgabe);
                 $('.resultSWS').html(intListAusgabe);
+            };
+
+            function exportierenExtList(){
+
             };
         </script>
     </body>
