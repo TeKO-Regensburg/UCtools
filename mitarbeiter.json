@@ -1,0 +1,39 @@
+{
+  "Mitarbeiter": [
+    {
+      "firstName": "Charly",  
+      "lastName": "Kupke",
+      "contacts": [
+        "info@xing.de",
+        "test@nn.de",
+        "tor@swsnet.de",
+        "doe@waterfalls.de",
+        "held@wiewir.com",
+        "das@gibts.net",
+        "fcn@fcn.de",
+        "hammer@airport-nuernberg.de",
+        "kupfer@stadt.nuernberg.de",
+        "schneider@kdg.de",
+        "tec@tec.info",
+        "dornheim@swsnet.de"
+      ],
+      "watchers":[
+
+      ]
+    },
+    {
+      "firstName": "Stefan",  
+      "name": "Dornheim",
+      "contacts": [
+        "kupke@swsnet.de",
+        "john@waterfalls.de",
+        "info@facebook.com",
+        "wander@vogel.de",
+        "vogel@swsnet.de"
+      ],
+      "watchers":[
+          
+      ]
+    }
+  ]
+}
