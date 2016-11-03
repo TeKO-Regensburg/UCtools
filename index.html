@@ -23,10 +23,15 @@
 
         <button type="button" id="exportierenBtn" class="btn">exportieren</button>
 
-        
+
+
+<!-- Beginn JavaScript-Bereich -->        
         <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
         <script>
+// Initialisieren der Kontaktliste als Array
             var contactList = [];
+
+// Funktion zum erstellen des Mitarbeiter Objektes
             function objErstellen(name){
                 switch(name){
                     case 'kupke':
@@ -41,39 +46,39 @@
                 auswahlEinstellen(obj);
             }
 
+// Hier werden alle Adressen mit der Endung @swsnet.de herausgefiltert und in ein seperates Array gespeichert
             function auswahlEinstellen(obj){
-                var tempArray = [];
-                var tempArray2 = [];
+                var extContactsArray = [];
+                var intContactsArray = [];
 
-                        for(var l in obj.contacts){
-                            if(obj.contacts[l].match(/@swsnet.de/gi)){
-                                tempArray2.push(obj.contacts[l]);
-                            }
-                            else{
-                                tempArray.push(obj.contacts[l]);
-                            }
-                        }
-                        listeAnzeigen(tempArray, tempArray2);                      
+                for(var l in obj.contacts){
+                    if(obj.contacts[l].match(/@swsnet.de/gi)){
+                        intContactsArray.push(obj.contacts[l]);
+                    }
+                    else{
+                        extContactsArray.push(obj.contacts[l]);
+                    }
+                }
+                listeAnzeigen(extContactsArray, intContactsArray);                      
             }
 
 // Erstellung der Liste (<ul>) und der Listeelemente (<li>). Zusätzlich wird jeden indexeintrag aus dem array texte einem <li> hinzugefügt.
-// Anschließend wird alles in gesamtListe ausgegeben
-            function listeAnzeigen(list, list2){
-                listAusgabe = document.createElement('ul');
-                listAusgabe2 = document.createElement('ul');
+            function listeAnzeigen(extContactsArray, intContactsArray){
+                extListAusgabe = document.createElement('ul');
+                intListAusgabe = document.createElement('ul');
 
-                for(var i = 0; i < list.length; i++){
+                for(var i = 0; i < extContactsArray.length; i++){
                     var item = document.createElement('li');
-                    item.appendChild(document.createTextNode(list[i]));
-                    listAusgabe.appendChild(item);
+                    item.appendChild(document.createTextNode(extContactsArray[i]));
+                    extListAusgabe.appendChild(item);
                 }     
-                for(var i = 0; i < list2.length; i++){
+                for(var i = 0; i < intContactsArray.length; i++){
                     var item = document.createElement('li');
-                    item.appendChild(document.createTextNode(list2[i]));
-                    listAusgabe2.appendChild(item);
+                    item.appendChild(document.createTextNode(intContactsArray[i]));
+                    intListAusgabe.appendChild(item);
                 }             
-                $('.result').html(listAusgabe);
-                $('.resultSWS').html(listAusgabe2);
+                $('.result').html(extListAusgabe);
+                $('.resultSWS').html(intListAusgabe);
             };
         </script>
     </body>
