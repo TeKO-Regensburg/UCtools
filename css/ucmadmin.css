@@ -1,0 +1,273 @@
+.btnSave {
+	background-image: url("../../ccmadmin/themes/VtgBlaf/Save24.gif");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+	margin: 0;
+	paddign: 0;
+	text-align: center;
+	width: 24px;
+}
+
+.btnDelete {
+	background-image: url("../../ccmadmin/themes/VtgBlaf/Delete24.gif");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+	margin: 0;
+	paddign: 0;
+	text-align: center;
+	width: 24px;
+}
+
+.btnReset {
+	background-image: url("../../ccmadmin/themes/VtgBlaf/Reset24.gif");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+	margin: 0;
+	paddign: 0;
+	text-align: center;
+	width: 24px;
+}
+
+.btnAddNew {
+        background-image: url("../../ccmadmin/themes/VtgBlaf/New24.gif");
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 24px;
+        margin: 0;
+        paddign: 0;
+        text-align: center;
+        width: 24px;
+}
+
+.hiddenButton {
+	display: none;
+}
+
+.toolbarButton {
+	cursor: pointer;
+}
+
+.viewDetails {
+	cursor: pointer;
+	display: none;
+}
+
+.additionalSettingsLink {
+	cursor: pointer;
+}
+
+.mainContentPane {
+	margin: 12px 15px 15px;
+	position: relative;
+}
+
+.mainContentWrapper {
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
+}
+
+.reboot2 fieldset table {
+	padding-left: 15px;
+}
+
+.textboxLabelTd {
+	text-align: right;
+	padding-bottom: 9px;
+	font-family: Tahoma,Geneva;
+	color: #222222;
+}
+
+.dialogContentLabel {
+	font-family: Tahoma;
+	font-size: 12px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 0;
+	text-align: right;
+}
+
+.reboot2 .xwtNotification .dijitTextBoxError,
+.reboot2 .xwtNotification .dijitComboBoxError {
+	margin-right: 20px;
+}
+
+.reboot2 td .dijitTextBox,
+.reboot2 td .xwtValidationTextBox {
+	margin: 0 5px 5px 7px;
+	padding: 2px 5px;
+}
+
+.reboot2 td .dijitSpinner,
+.reboot2 td .dijitComboBox,
+.reboot2 td .xwtComboBox {
+	margin: 0 5px 5px 7px;
+	width: 190px;
+}
+
+.reboot2 .dijitSpinner .dijitArrowButtonInner {
+	background:url(../resources/xwt/themes/reboot2/images/spriteArrows.png);
+}
+
+.reboot2 .dijitSpinner .dijitUpArrowButton .dijitArrowButtonInner {
+	background-position: -49px center;
+}
+
+.reboot2 .dijitSpinner .dijitDownArrowButton .dijitArrowButtonInner {
+	background-position: -28px center;
+}
+
+.iconPlus{				
+	background:transparent url(../images/add_1143_16.png) no-repeat scroll center center;
+	height:16px;
+	width:16px;
+}
+			
+.iconMinus{				
+	background:transparent url(../images/remove_1144_16.png) no-repeat scroll center center;
+	height:16px;
+	width:16px;
+}
+
+.iconArrowDown{				
+	background:transparent url(../resources/xwt/themes/reboot2/xwt/images/table/toolbar/contextual/moveto_down.png) no-repeat scroll center center;
+	height:16px;
+	width:16px;
+}
+
+.iconArrowUp{				
+	background:transparent url(../resources/xwt/themes/reboot2/xwt/images/table/toolbar/contextual/moveto_up.png) no-repeat scroll center center;
+	height:16px;
+	width:16px;
+}
+
+.iconNone{
+	background:transparent none no-repeat scroll center center;
+	height:16px;
+	width:16px;
+}
+
+.phoneButtonEditContent{
+	border: 1px solid black;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #F0FAFF;
+}
+
+.pbNumberCol{
+	width: 20px;
+	float: left;
+	padding-top: 5px;
+}
+
+.pbLabelCol{
+	width: 200px;
+	float: left;
+	padding-top: 5px;
+	color: #000000;
+}
+
+.pbLabelColDisabled{
+	width: 200px;
+	float: left;
+	padding-top: 5px;
+	color: #8594A3;
+}
+
+.phoneButton{
+	padding-bottom: 5px;
+}
+
+.reboot2 .xwtRepeater .dijitValidationIcon,
+.reboot2 .xwtNotification .xwtRepeater .dijitValidationIcon {
+       height: 16px !important;
+       width: 16px !important;
+       position: absolute;
+}
+
+/*This is required for dijit.layout.BorderContainer*/
+body, html, #contentPane{ width:100%; height:100%;
+border: 0; padding: 0; margin: 0;
+}
+
+/*Styles for PresenceViewer Page*/
+.futurama .dijitTreeRow .dijitIcon.presence_available {
+        background-image: url('../images/presence_available.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+.futurama .dijitTreeRow .dijitIcon.presence_away {
+        background-image: url('../images/presence_away.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+.futurama .dijitTreeRow .dijitIcon.presence_dnd {
+        background-image: url('../images/presence_dnd.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+.futurama .dijitTreeRow .dijitIcon.presence_offline {
+        background-image: url('../images/presence_offline.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+
+.futurama .dijitTreeRow .dijitIcon.presence_acc_available {
+        background-image: url('../images/presence_acc_available.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+.futurama .dijitTreeRow .dijitIcon.presence_acc_away {
+        background-image: url('../images/presence_acc_away.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+.futurama .dijitTreeRow .dijitIcon.presence_acc_dnd {
+        background-image: url('../images/presence_acc_dnd.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+.futurama .dijitTreeRow .dijitIcon.presence_acc_offline {
+        background-image: url('../images/presence_acc_offline.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 21px;
+        height: 20px;
+        display: inline;
+}
+
+.presenceViewerErrorMessage {color:red;}
+
+.dijitProgressBarDialog .dijitDialogTitleBar {
+    display: none;
+}
+.reboot2 .xwtDialog .carouselItem {
+float: left;
+}
+

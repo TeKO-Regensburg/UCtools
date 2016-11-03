@@ -1,0 +1,92 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML lang="en">
+    <HEAD>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <TITLE>Cisco Unified Communications Manager Administration</TITLE>    
+
+        <LINK id="themeStyles" rel="stylesheet" type="text/css" href="resources-latest/dojox/widget/Toaster/Toaster.css">
+        <LINK id="themeStyles" rel="stylesheet" type="text/css" href="resources-latest/dijit/themes/futurama/futurama.css">
+        <LINK id="themeStyles" rel="stylesheet" type="text/css" href="resources-latest/dijit/themes/futurama/widget/Grid.css">
+        <LINK rel="stylesheet" type="text/css" href="resources-latest/dojox/widget/Pager/Pager.css">
+        <LINK id="ucmadminStyles" rel="stylesheet" type="text/css" href="css/ucmadmin.css">
+ 
+        <!-- Bootstrap -->
+        <SCRIPT type="text/javascript" src="js/json2.js"></SCRIPT>
+        <SCRIPT type="text/javascript">
+            var http_request = new XMLHttpRequest();
+            http_request.open("GET", "locale", false);
+            http_request.send(null);
+            dojoConfig = {
+                parseOnLoad: true,
+                has: {
+                    "dojo-firebug": true,
+                    "dojo-debug-messages": true
+                },
+                packages: [{
+                    name: "ucmadmin",
+                    location: "../ucmadmin"
+                }]
+            }
+            dojoConfig.locale = http_request.responseText;
+        </SCRIPT>
+        <SCRIPT type="text/javascript" src="resources-latest/dojo/dojo.js"></SCRIPT>
+        <SCRIPT type="text/javascript" src="resources-latest/ucmadmin/Common.js"></SCRIPT>
+        <!-- End Bootstrap -->
+        <script type="text/javascript">
+        	require(["dojo/ready","dojox/layout/ContentPane","dojox/widget/Toaster", "dojo/dom-class"],function(ready,ContentPane,Toaster,domClass){
+        		ready(function(){
+        		var content = "pages";
+        		var ucmadminHref = "/home.html";
+        		var href = window.location.search.split("?");
+        		if (href[1]) {
+        			var paramsIndex = href[1].indexOf("&");
+        			if (paramsIndex != -1) {
+        				ucmadminHref = "/" + href[1].substring(0, paramsIndex).split("=")[1] + ".html?" + href[1].substring(paramsIndex);  
+        			} else {
+        				ucmadminHref = "/" + href[1].split("=")[1] + ".html";
+        			}
+        		}
+        		content += ucmadminHref;
+        		
+        		var cp = new ContentPane({
+        			id: "contentPane",
+        			style:"width: 100%; height: 100%;"
+        		},"contentPane");
+        		domClass.add(cp.domNode,"mainContentPane");
+        		cp.startup();
+        		cp.set("href",content);
+        		
+        		var toast = new Toaster({
+        			positionDirection: 'br-left',
+        			duration: 0,
+        			messageTopic: 'statusTopic'
+        		},"ucmadminToaster");
+        		toast.startup()
+        		
+        		window.onresize=function(){
+        			var toolbar = dojo.byId("globalButtonToolbar");
+        			var contentWrapper = dojo.byId("contentWrapper");
+        			if (toolbar && contentWrapper) {
+        				var contentHeight = document.documentElement.clientHeight;
+        				var toolbarHeight = toolbar.offsetHeight;
+        				contentWrapper.style.height=(contentHeight-toolbarHeight) + "px";
+        			}
+        		};
+        		});
+        	});
+        </script>
+            
+
+    </HEAD>
+    
+    <BODY class="futurama">   
+        <div id="globalButtonToolbar"></div>
+        <DIV id="contentWrapper" class="mainContentWrapper" style="width: 100%; height: 100%;">
+        	<div id="contentPane"></div>
+        </DIV>
+        <div id="ucmadminToaster"></div>
+    </BODY>
+
+</HTML>
